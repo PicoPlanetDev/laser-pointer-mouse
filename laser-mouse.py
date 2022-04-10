@@ -119,8 +119,8 @@ def move_mouse(dotX, dotY, top_left, bottom_right):
     mouse.move(x+PROJECTOR_X_OFFSET, y+PROJECTOR_Y_OFFSET, absolute=True, duration=0.1)
 
 def main(calibration):
-    keyboard.add_hotkey(LEFT_CLICK_MAPPING, lambda: mouse.click(button='left'))
-    keyboard.add_hotkey(RIGHT_CLICK_MAPPING, lambda: mouse.click(button='right'))
+    keyboard.on_release_key(LEFT_CLICK_MAPPING, lambda: mouse.click(button='left'), suppress=True)
+    keyboard.on_release_key(RIGHT_CLICK_MAPPING, lambda: mouse.click(button='right'), suppress=True)
 
     top_left = (int(calibration[0]), int(calibration[1]))
     bottom_right = (int(calibration[2]), int(calibration[3]))
